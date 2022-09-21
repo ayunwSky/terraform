@@ -9,5 +9,5 @@ provider "aws" {
 provider "alicloud" {
   access_key = "LTAIxxxAg"
   secret_key = "A9Dxxxxxxxm9Oe"
-  region = "cn-hangzhou"
+  region     = "cn-hangzhou"
 }
