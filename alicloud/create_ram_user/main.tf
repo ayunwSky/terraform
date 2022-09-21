@@ -19,7 +19,13 @@ resource "alicloud_ram_user" "user" {
 
 resource "alicloud_ram_login_profile" "profile" {
   user_name = alicloud_ram_user.user.name
-  password  = var.ram_user_password
+  # 使用变量的形式，默认以交互式输入密码
+  # 或者在命令行使用 -var "ram_user_password=ayunw#123.." 来指定密码
+  # 注意：使用 -var 命令指定的密码，如果包含叹号似乎会报错
+  #password  = var.ram_user_password
+  
+  # 写死密码 或者 在 variables.tf 中设置 default 默认值
+  #password  = "ayunw#123..!"
 }
 
 resource "alicloud_ram_access_key" "ak" {
